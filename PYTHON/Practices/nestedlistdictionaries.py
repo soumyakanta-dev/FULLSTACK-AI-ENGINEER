@@ -22,6 +22,8 @@ for record in invoice_records:
     print(f"\nInvoice Identification: {record['id']} | Total Value: {record['amount']}rs")
 
 
+
+
 # 3. Premium Inventory Audit
 
 warehouse_items = [
@@ -33,6 +35,8 @@ warehouse_items = [
 for item in warehouse_items:
     if item["price"] > 200:
         print(f"\nPremium Item Found: {item['item_name']} costing {item['price']}rs")
+
+
 
 
 # 4. Total Math Value Accumulator
