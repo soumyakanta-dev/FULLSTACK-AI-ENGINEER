@@ -1,0 +1,31 @@
+----------ARGS1 STARTS FROM HERE----------
+Category: Dairy Stock
+Price : 60.5
+Price : 160.0
+Price : 320.0
+
+
+----------ARGS2 STARTS FROM HERE----------
+
+Staff : Soumya | Dept : Operations
+
+----------ARGS3 STARTS FROM HERE----------
+
+Name of Employee Present Today :- 
+Soumya
+Tarun
+Hrushikesh
+
+Date: 07-06-2026 | Total Headcount: 3
+
+
+----------ARGS4 STARTS FROM HERE----------
+
+Total Filtered Numbers are : 
+120
+300
+150
+
+----------ARGS5 STARTS FROM HERE----------
+
+File Name: sentence.txt | Merge_word = Puri Business Management System

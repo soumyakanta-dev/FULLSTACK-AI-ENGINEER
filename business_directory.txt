@@ -1,0 +1,10 @@
+=== LOG DIRECTORY START ===
+
+Type: Customer Sale
+    name : Soumya 
+    cash_paid : 150 
+
+Type: Supplier Purchase
+    supplier : Khushboo Agency 
+    item : Amul Buttermilk 
+    due : 4500 

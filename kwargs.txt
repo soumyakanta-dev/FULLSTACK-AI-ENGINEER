@@ -1,0 +1,15 @@
+
+**************** KWARGS 1 STARTS HERE ***************
+
+Supplier Name : Khushboo Agencycity : Purirating : 5items_supplied : 22
+**************** KWARGS 2 STARTS HERE ***************
+
+Product_id : PROD_991brand : Amulprotein : 15gtype : Buttermilk
+**************** KWARGS 3 STARTS HERE ***************
+
+Settings of Application :- theme : Dark Modefont_size : 14automatic_backup : ENABLED
+**************** KWARGS 4 STARTS HERE ***************
+CRITICAL DUE ALERT :- Supplier: Milky_Mist | Balance: 12000
+**************** KWARGS 5 STARTS HERE ***************
+
+Voucher_id : VOUCH_JUNE_07Total_Items : 15Cashier : SoumyaMode : Cash Counter
