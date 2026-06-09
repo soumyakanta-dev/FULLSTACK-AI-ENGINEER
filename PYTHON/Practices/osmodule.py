@@ -82,6 +82,7 @@ bulk_ledger_backup("vault_name", ["morning.txt", "evening.txt"])
 def system_cleaner(folder_name, file_to_delete):
 
     perfectPath = os.path.join(folder_name, file_to_delete)
+    
 
     if os.path.exists(perfectPath):
         os.remove(perfectPath)
@@ -90,3 +91,24 @@ def system_cleaner(folder_name, file_to_delete):
         print(f'⚠️ File not found. Clean operation bypassed.')
 
 system_cleaner("vault_name", "morning.txt")
+system_cleaner("vault_name", "evening.txt")
+system_cleaner("PYTHON", "june_cash_ledger.txt")
+
+
+# 7. Folder termination permanently
+
+import shutil
+
+def folder_terminator(sub_folder):
+
+    folder_name = os.getcwd()
+
+    perfectpath = os.path.join(folder_name, sub_folder)
+
+    if os.path.exists(perfectpath):
+        os.removedirs(perfectpath)
+        print(f"Path termination successfully")
+    else:
+        print(f'⚠️ Path not found. Clean operation bypassed.')
+
+folder_terminator("Daily_Audit_Vault")
