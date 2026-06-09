@@ -1,0 +1,292 @@
+================================================================================
+          CHAPTER 1: PYTHON BASICS & CORE PERSISTENCE ENGINE (CLASS 1 - 22)
+                      COMPLETE CLASS-BY-CLASS STUDY HANDBOOK
+================================================================================
+
+[CLASS 01]: WHAT IS PYTHON AND MEMORY EXECUTION (RAM)
+- CONCEPT: Python ek high-level programming language hai. Jab hum koi code run karte 
+  hain, toh uska saara data computer ki temporary memory (RAM) me chalta hai. Program 
+  band hote hi RAM ka data flush ho jata hai.
+- CODE:
+  print("Hello Soumya") # Terminal par text dikhane ke liye
+- 💡 TIPS & TRAPS:
+  * TRAP: RAM volatile hoti hai. Agar aapne code me data save kiya aur computer band 
+    ho gaya, toh data permanent destroy ho jayega.
+  * TIP: Code me comments likhne ke liye '#' ka use karein taaki baad me samajh aaye.
+
+[CLASS 02]: VARIABLES AND BASIC DATA TYPES
+- CONCEPT: RAM ke andar data ko store karne ke liye hum ek naam ka dabba banate hain, 
+  jise Variable kehte hain. Alag data ka alag type hota hai.
+- CODE:
+  age = 25              # Integer (Pura number)
+  price = 499.50        # Float (Decimal number)
+  name = "Soumya Store" # String (Text)
+  is_open = True        # Boolean (True/False)
+- 💡 TIPS & TRAPS:
+  * TRAP: Variable ke naam me beech me space nahi ho sakta (jaise 'total bill = 100' 
+    error dega). Hamesha underscore lagayein ('total_bill = 100').
+  * TIP: True aur False ka 'T' aur 'F' hamesha CAPITAL hona chahiye.
+
+[CLASS 03]: THE INPUT INGESTION ENGINE
+- CONCEPT: User se terminal par live kuch likhwane ke liye input() function use hota hai.
+- CODE:
+  vendor_name = input("Supplier ka naam likho: ")
+  print("Welcome", vendor_name)
+- 💡 TIPS & TRAPS:
+  * TRAP: input() function user se mili har cheez ko default TEXT (String) maanta hai. 
+    Agar user 500 bhi likhega, toh Python use number nahi, text "500" samjhega.
+  * TIP: input ke andar ka text user ko screen par instruction dikhane ke kaam aata hai.
+
+[CLASS 04]: TYPE CASTING (DATA TYPE CONVERSION)
+- CONCEPT: Ek data type ko doosre data type me badalna (jaise text ko number banana).
+- CODE:
+  raw_price = input("Price batao: ") # "250" (String)
+  clean_price = float(raw_price)     # 250.0 (Asli decimal number)
+- 💡 TIPS & TRAPS:
+  * TRAP: VALUE-CRASH! Agar user ne input me number ki jagah text (jaise "Puri") likh 
+    diya, toh float() use convert nahi kar payega aur code crash (`ValueError`) ho jayega.
+  * TIP: Math calculations karne se pehle hamesha string input ko int() ya float() karein.
+
+[CLASS 05]: CONDITIONAL OPERATORS & BASIC IF STATEMENT
+- CONCEPT: Jab code me koi condition check karke aage badhna ho.
+- CODE:
+  cash = 500
+  if cash > 200:
+      print("You can buy paneer")
+- 💡 TIPS & TRAPS:
+  * TRAP: INDENTATION ERROR! Python me condition ke baad ':' lagana zaroori hai aur agli 
+    line me 4 spaces (1 Tab) ka gap dena compulsory hai, warna code nahi chalega.
+  * TIP: Gap ko indentation kehte hain, isi se Python ko pata chalta hai ki kaun sa code 
+    if ke andar hai.
+
+[CLASS 06]: COMPLETE CONDITIONAL SYSTEM (IF - ELIF - ELSE)
+- CONCEPT: Jab ek se zyada conditions checks lagani hon aur har condition par alag faisla 
+  lena ho.
+- CODE:
+  stock = 5
+  if stock > 10:
+      print("Full Stock")
+  elif stock > 0:
+      print("Low Stock! Order soon")
+  else:
+      print("Out of Stock!")
+- 💡 TIPS & TRAPS:
+  * TRAP: Code upar se neeche chalta hai. Agar pehli condition True ho gayi, toh Python 
+    neeche ke 'elif' ya 'else' ko check bhi nahi karega, bhale hi woh sahi hon.
+  * TIP: Hamesha sabse specific condition ko sabse upar (if me) rakhna chahiye.
+
+[CLASS 07]: FOR LOOP AND RANGE MECHANICS
+- CONCEPT: Jab hume pehle se pata ho ki koi kaam kitni baar repeat karna hai.
+- CODE:
+  for i in range(1, 5): # 1 se shuru hoga, 4 tak chalega (5 index skip hota hai)
+      print("Counter:", i)
+- 💡 TIPS & TRAPS:
+  * TRAP: range(start, stop) me 'stop' waala number kabhi include nahi hota. range(1, 5) 
+    sirf 4 tak hi chalega.
+  * TIP: range() me teesra number step hota hai, jaise range(1, 10, 2) karne par yeh 2-2 
+    kadm aage koodega.
+
+[CLASS 08]: WHILE LOOP LOGIC (EVENT-DRIVEN ITERATION)
+- CONCEPT: Jab tak koi condition sach (True) hai, tab tak loop lagatar chalta rahega.
+- CODE:
+  token = 1
+  while token <= 3:
+      print("Token number:", token)
+      token += 1 # Counter badhana zaroori hai
+- 💡 TIPS & TRAPS:
+  * TRAP: THE INFINITE FREEZE! While loop me agar aap loop counter ko badhana 
+    ('token += 1') bhool gaye, toh condition hamesha True rahegii aur loop kabhi band 
+    nahi hoga, system crash ho jayega.
+  * TIP: While loop tab lagao jab tumhe fixed number na pata ho, balki kisi event par 
+    loop chalana ho.
+
+[CLASS 09]: LOOP CONTROL - THE BREAK SWITCH
+- CONCEPT: Chalti hui loop ko kisi condition par achanak permanent band karke bahar 
+  bhaagne ke liye break use hota hai.
+- CODE:
+  for target in range(1, 10):
+      if target == 5:
+          break # 5 aate hi loop khatam
+      print("Number:", target)
+- 💡 TIPS & TRAPS:
+  * TRAP: break chalte hi loop ka connection disk/RAM se poora cut ho jata hai, uske 
+    baad ka koi bhi bacha hua iteration nahi chalega.
+  * TIP: Kisi heavy database search me jab item mil jaye, toh turant break laga dena 
+    chahiye taaki computer ka time bache.
+
+[CLASS 10]: LOOP CONTROL - THE CONTINUE SWITCH
+- CONCEPT: Loop ke current round ke neeche wale code ko skip karke, turant agle round par 
+  jump karne ke liye continue use hota hai.
+- CODE:
+  for step in range(1, 6):
+      if step == 3:
+          continue # 3 ko skip karega, print nahi hone dega
+      print("Step:", step)
+- 💡 TIPS & TRAPS:
+  * TRAP: While loop me continue lagane se pehle counter badhana mat bhoolna, warna code 
+    continue se upar bhaagega aur wahi freeze ho jayega.
+  * TIP: Bad items ya empty items ko filter out karne ke liye continue sabse best tool hai.
+
+[CLASS 11]: NESTED LOOPS ARCHITECTURE
+- CONCEPT: Ek loop ke andar doosra loop chalana.
+- CODE:
+  for i in range(1, 3): # Outer loop
+      for j in range(1, 3): # Inner loop
+          print(f"i={i}, j={j}")
+- 💡 TIPS & TRAPS:
+  * TRAP: PERFORMANCE SLOWDOWN! Nested loop computer par bohot heavy hote hain. Agar 
+    1000 items ke andar 1000 items ka nested loop chalaya, toh code 10,00,000 baar ghumega.
+  * TIP: Inner loop apna poora round khatam karta hai jab outer loop ka sirf 1 round hota hai.
+
+[CLASS 12]: COMPOSITE LISTS [] (MUTABLE ARRAYS)
+- CONCEPT: Ek single variable me bohot saare items line se store karna. List mutable hai, 
+  yaani ise badla ja sakta hai.
+- CODE:
+  items = ["Milk", "Paneer"]
+  items.append("Buttermilk") # Naya item end me add ho gaya
+  items[0] = "Oats"          # "Milk" badal kar "Oats" ho gaya
+- 💡 TIPS & TRAPS:
+  * TRAP: INDEX-ERROR! Agar list me 3 items hain aur aapne 'items[5]' mang liya, toh 
+    Python error dekar code crash kar dega. Index hamesha 0 se shuru hota hai.
+  * TIP: List me aakhiri item nikalne ke liye negative index '-1' use karein (`items[-1]`).
+
+[CLASS 13]: FIXED TUPLES () (IMMUTABLE DATA LOCK)
+- CONCEPT: List ki tarah hi ordered collection hai, par yeh FIXED hota hai. Isme koi 
+  change nahi kiya ja sakta.
+- CODE:
+  location = ("Puri", "Odisha")
+- 💡 TIPS & TRAPS:
+  * TRAP: TYPE-ERROR! Tuples me '.append()' ya index modify ('location[0] = "Goa"') 
+    nahi chalta. Karenge toh crash ho jayega.
+  * TIP: Jo data kabhi nahi badalna (jaise coordinates, state codes), unhe hamesha Tuple 
+    me rakhein, yeh list se fast chalte hain.
+
+[CLASS 14]: DICTIONARIES {} (KEY-VALUE REGISTRY)
+- CONCEPT: Data ko Key aur Value ke pair me store karna (jaise Mobile no : Name). Sabse 
+  fast data dhoondhne ke kaam aati hai.
+- CODE:
+  store = {"brand": "Amul", "product": "Buttermilk"}
+  print(store["brand"]) # Output: Amul
+- 💡 TIPS & TRAPS:
+  * TRAP: KEY-ERROR! Store me agar aapne 'store["price"]' manga aur woh key wahan nahi 
+    hai, toh code crash ho jayega. Isse bachne ke liye hamesha '.get()' ka use karein: 
+    `store.get("price", 0)`.
+  * TIP: Keys hamesha unique hoti hain, duplicate key likhne par purani value override ho 
+    jayegi.
+
+[CLASS 15]: UNIQUE SETS {} (DUPLICATES REMOVER)
+- CONCEPT: Unordered collection jisme koi bhi duplicate item nahi reh sakta.
+- CODE:
+  numbers = {1, 2, 2, 3, 3} # Set banega sirf {1, 2, 3}
+- 💡 TIPS & TRAPS:
+  * TRAP: NO INDEXING! Sets me index nahi hota, isiliye aap 'numbers[0]' likh kar koi 
+    item nahi nikal sakte.
+  * TIP: Kisi list se saari duplicate entries ek jhatke me saaf karni hon, toh use set me 
+    cast kar do: `list(set(my_list))`.
+
+[CLASS 16]: FUNCTIONS DEFINITION ('def')
+- CONCEPT: Code ke ek hisse ko ek naam ke box me pack kar dena, taaki use jab chahein 
+  wapas use kar sakein.
+- CODE:
+  def greet_user():
+      print("Hello Soumya")
+  
+  greet_user() # Function call kiya
+- 💡 TIPS & TRAPS:
+  * TRAP: Definition vs Execution! Sirf 'def' likhne se code nahi chalta, jab tak aap 
+    niche use uske naam se call na karein.
+  * TIP: Functions banane se code bar-bar copy-paste nahi karna padta.
+
+[CLASS 17]: FUNCTION RETURN VALUES SYSTEM
+- CONCEPT: Function ke andar ki calculation ka output bahar nikal kar computer ki RAM 
+  me save karne ke liye return use hota hai.
+- CODE:
+  def get_tax(bill):
+      return bill * 0.18
+  
+  my_tax = get_tax(1000) # Output 180 variable me save ho gaya
+- 💡 TIPS & TRAPS:
+  * TRAP: THE NONE BUG! Agar function me sirf 'print()' likha hai aur 'return' nahi 
+    likha, toh aap uski value kisi variable me save nahi kar sakte, variable default 
+    'None' ban jayega.
+  * TIP: Return chalte hi function ka kaam khatam ho jata hai, return ke niche likha koi 
+    bhi code kabhi execute nahi hota.
+
+[CLASS 18]: UNLIMITED ARGUMENTS (*ARGS TUPLE PACK)
+- CONCEPT: Jab function ko call karte waqt nahi pata ki user kitne values bhejega. 
+  *args saare extra inputs ko ek Tuple me pack kar deta hai.
+- CODE:
+  def total_expense(*args):
+      return sum(args) # Saare numbers ka total
+  
+  print(total_expense(100, 200, 50)) # Kitne bhi arguments bhej sakte hain
+- 💡 TIPS & TRAPS:
+  * TRAP: *args hamesha normal arguments leta hai, isme name=value wale inputs nahi 
+    bhej sakte.
+  * TIP: 'args' naam zaroori nahi hai, asli chamatkar is '*' symbol ka hai.
+
+[CLASS 19]: UNLIMITED KEYWORD ARGUMENTS (**KWARGS DICTIONARY PACK)
+- CONCEPT: Jab user unlimited Name-Value pairs bhejega, toh **kwargs unhe ek Dictionary 
+  me pack kar dega.
+- CODE:
+  def show_profile(**kwargs):
+      print(kwargs) # Output ek dict hoga
+  
+  show_profile(name="Amul", status="Active")
+- 💡 TIPS & TRAPS:
+  * TRAP: **kwargs se bani dictionary par direct single item loop nahi chalta, isme 
+    maal nikalne ke liye hamesha `.items()` loop lagana padta hai.
+  * TIP: *args aur **kwargs ko ek sath use karte waqt *args ko hamesha pehle likha jata hai.
+
+[CLASS 20]: DATA PERSISTENCE LAYER (FILE HANDLING - `WITH OPEN`)
+- CONCEPT: RAM ka data temporary hota hai. Hard Disk me permanent `.txt` file ke andar 
+  entries hamesha ke liye save karne ka tarika.
+- CODE:
+  with open("ledger.txt", "a") as f: # "a" ka matlab append (end me jodna)
+      f.write("New entry logged\n")  # \n se line change hoti hai
+- 💡 TIPS & TRAPS:
+  * TRAP: THE STICKY OVERLAP! '.write()' automatic line change nahi karta. Agar aapne 
+    end me '\n' nahi lagaya, toh agli baar ka data usi text ke sath chipak kar kachra ho 
+    jayega.
+  * TIP: 'with open' lagane ka fayda yeh hai ki kaam khatam hote hi Python file ka gate 
+    automatic close kar deta hai, file corrupt nahi hoti.
+
+[CLASS 21]: OPERATING SYSTEM AUTOMATION (OS MODULE)
+- CONCEPT: Code ke zariye computer me folders banana, unka sahi path jodhna aur unhe 
+  delete karna.
+- CODE:
+  import os
+  import shutil
+
+  os.makedirs("Store_Data", exist_ok=True) # Safe folder banana (Crash nahi hoga)
+  correct_path = os.path.join("Store_Data", "bills.txt") # System specific path
+  
+  os.remove(correct_path) # File delete karne ke liye
+  shutil.rmtree("Store_Data") # Bhara folder force-delete karne ke liye
+- 💡 TIPS & TRAPS:
+  * TRAP: ACCESS DENIED ERROR! Agar target folder ya file VS Code ke side explorer pane 
+    me khula hai ya background process me lock hai, toh Windows Python ko file delete 
+    nahi karne dega. Code me `PermissionError` aayega. Solution: File/Folder ko collapse ya 
+    close karo.
+  * TIP: Cross-platform code banane ke liye hamesha `os.path.join()` use karein, manual 
+    slashes (`/` ya `\`) mat lagayein.
+
+[CLASS 22]: MATH AND RANDOM UTILITIES
+- CONCEPT: Calculation ko absolute rules par round-off karna aur system ke liye 
+  automatic random token numbers (IDs) generate karna.
+- CODE:
+  import math
+  import random
+
+  print(math.ceil(450.15))   # Output: 451 (Chat - Agla bada integer)
+  print(math.floor(450.85))  # Output: 450 (Zameen - Pichla chota integer)
+  print(round(450.40))       # Output: 450 (Python default proximity round)
+  
+  invoice_id = random.randint(1000, 9999) # 4-digit unique code generator
+  gift = random.choice(["Paneer", "Buttermilk"]) # List se ek random item pick karna
+- 💡 TIPS & TRAPS:
+  * TRAP: 'round()' ek built-in function hai, iske aage galti se bhi 'math.round()' मत 
+    likhna, warna code instantly blast ho jayega.
+  * TIP: `random.choice()` sirf list ya tuple par hi kaam karta hai, direct dictionary 
+    par nahi chalta.
+================================================================================
