@@ -1,8 +1,10 @@
-# # 1. Automatic Daily Supplier Ingestion Folder
-
 import os
 
 current_dir = os.getcwd()
+
+# # 1. Automatic Daily Supplier Ingestion Folder
+
+
 
 # def initiate_business_vault(folder_name):
 
@@ -119,9 +121,9 @@ def folder_terminator(sub_folder):
     perfectpath = os.path.join(current_dir, sub_folder)
 
     if os.path.exists(perfectpath):
-        os.rmdir(perfectpath)
+        shutil.rmtree(perfectpath)
         print(f"Path termination successfully")
     else:
         print(f'⚠️ Path not found. Clean operation bypassed.')
 
-folder_terminator("Daily_Audit_Vault")
+# folder_terminator("Daily_Audit_Vault")
