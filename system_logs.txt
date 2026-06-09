@@ -1,3 +1,0 @@
-[Task Name : & C:/Users/sahoo/AppData/Local/Programs/Python/Python314/python.exe "c:/Users/sahoo/OneDrive/Desktop/FULLSTACK AI ENGINEER/PYTHON/Practices/filehandling.py" | Status: & C:/Users/sahoo/AppData/Local/Programs/Python/Python314/python.exe "c:/Users/sahoo/OneDrive/Desktop/FULLSTACK AI ENGINEER/PYTHON/Practices/filehandling.py"
-[Task Name : Singing | Status: inactive
-[Task Name : arg | Status: asd

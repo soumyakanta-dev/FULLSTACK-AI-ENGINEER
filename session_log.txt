@@ -1,5 +1,0 @@
-System Starts from  here
-Task Name : Daily Settlement
-Details -> Cash engine verified
-Details -> Ledger updated with 300rs
-Details -> System closed securely
