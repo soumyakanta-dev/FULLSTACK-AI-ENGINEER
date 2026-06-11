@@ -18,21 +18,26 @@ is_active = True
 # --- CLASS 3: Raw Input Ingestion ---
 user_entry = input("Enter Item Name: ")
 
-# --- CLASS 4: Type Casting Execution ---
+# --- CLASS 4: Type Casting & Ingestion Cleaning ---
 raw_quantity = input("Enter Quantity: ")
-clean_quantity = int(raw_quantity) # Integer target
+# ADD-ON: `.strip()` removes trailing/leading spaces before checking or type casting
+clean_string = raw_quantity.strip()
+if clean_string.isdigit():
+    clean_quantity = int(clean_string) # Integer target
 
 # --- CLASS 5: Basic Condition Check ---
 if clean_quantity > 5:
     print("Bulk Order Triggered")
 
-# --- CLASS 6: Full Choice Logic (If-Elif-Else) ---
+# --- CLASS 6: Full Choice Logic (If-Elif-Else) & The Assignment Crossroads ---
+# REMINDER: '=' is assignment, '==' is comparison
+current_tier = "None"
 if base_cash > 5000:
-    print("Premium Tier Account")
+    current_tier = "Premium"  # Assignment with '='
 elif base_cash >= 10000:
-    print("Standard Tier Account")
+    current_tier = "Standard"
 else:
-    print("Basic Tier Account")
+    current_tier = "Basic"
 
 # --- CLASS 7: Pre-known Iterations (For Loop) ---
 for round_step in range(1, 4):
@@ -44,41 +49,37 @@ while live_counter <= 3:
     print(f"While Loop Execution: {live_counter}")
     live_counter += 1
 
-# --- CLASS 9: Forcing Loop Termination (Break) ---
-for target in range(1, 10):
-    if target == 4:
-        break
-    print(f"Break Check Item: {target}")
-
-# --- CLASS 10: Skipping Iteration Segment (Continue) ---
-for index in range(1, 5):
-    if index == 2:
-        continue
-    print(f"Continue Check Item: {index}")
-
-# --- CLASS 11: Multi-Dimensional Loops (Nested) ---
-for row in range(1, 3):
-    for col in range(1, 3):
-        print(f"Row coordinate={row} | Col coordinate={col}")
-
-# --- CLASS 12: List Operations (Mutable Array) ---
+# --- CLASS 12: List Operations & Dynamic Purging ---
 store_items = ["Paneer", "Buttermilk"]
 store_items.append("Tempeh")
-store_items[0] = "Oats"
+
+# ADD-ON: Dynamic deletion methods
+store_items.remove("Tempeh")   # Method A: Value-based purge
+popped_item = store_items.pop(1) # Method B: Index-based purge (returns item)
+del store_items[0]             # Method C: Structural memory deletion
+
+# Re-initializing for downstream compatibility
+store_items = ["Oats", "Buttermilk"]
 
 # --- CLASS 13: Tuple Operations (Locked Array) ---
 fixed_location = ("Puri", "Odisha")
 
-# --- CLASS 14: Dictionary Operations (Key-Value Setup) ---
+# --- CLASS 14: Dictionary Operations & Crash Defenses ---
 vendor_ledger = {"vendor": "Khushboo Agency", "code": 401}
+# UPDATED STANDARD: Using defensive fallback logic
 safe_extract_vendor = vendor_ledger.get("vendor", "Not Listed")
+safe_extract_status = vendor_ledger.get("status", "Pending Verification")
 
 # --- CLASS 15: Set Operations (Duplicates Filter) ---
 raw_batch_ids = {551, 552, 552, 553} # Output yields only -> {551, 552, 553}
 
-# --- CLASS 16: Basic Block Construction (Functions) ---
+# --- CLASS 16: Function Construction & Scope Execution ---
+system_state = "Idle" # Global Variable
+
 def trigger_system_ping():
-    print("Core Core Operational Ping Triggered")
+    global system_state # ADD-ON: Explicit authorization to mutate global scope
+    system_state = "Active"
+    print(f"Core Operational Ping Triggered. State: {system_state}")
 
 trigger_system_ping()
 
@@ -121,4 +122,28 @@ standard_round_val = round(840.45)     # Nearest -> 840
 
 random_secure_otp = random.randint(100000, 999999) # 6-Digit Verification
 random_lucky_pick = random.choice(store_items)       # Select from list array
+
+# --- CLASS 23: Exception Handling Level 1 (Continuous Retry Loop) ---
+while True:
+    try:
+        user_birth_year = input('Enter your birth year :- ')
+        birth_year = int(user_birth_year)
+        user_age = 2026 - birth_year
+        print(f'your age is {user_age}')
+        break # Safal hone par loop se exit
+    except Exception: # Level 1 Catch-All Shield
+        print('Enter the correct number\n')
+
+# --- CLASS 24: Exception Handling Level 2 (Specific Multi-Error Handling) ---
+while True:
+    filename = input('Enter your file name :- ')
+    try:
+        with open(filename, "r") as file:
+            amount = int(file.read().strip())
+            print(amount * .5)
+            break # Sab kuch perfect hone par hi loop tabaah hoga
+    except FileNotFoundError:
+        print('File is mising bro...\n')
+    except ValueError:
+        print('data is corrupted in file.\n')
 # ==============================================================================

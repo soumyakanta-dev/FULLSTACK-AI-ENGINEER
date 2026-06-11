@@ -1,0 +1,2 @@
+'Supplier Name' - sridhar sahoo | 'Product Name' - milk | 'Current Stock' - 100
+'Supplier Name' - somu | 'Product Name' - paneer | 'Current Stock' - 10
