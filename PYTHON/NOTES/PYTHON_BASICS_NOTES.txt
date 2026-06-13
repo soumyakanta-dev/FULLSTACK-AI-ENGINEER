@@ -346,5 +346,31 @@
     saare errors wahi trap ho jayenge aur niche ke specific blocks kabhi execute nahi honge.
   * TIP: File reading pipelines me database corruption pakadne ke liye humesha sub-level par 
     ValueError aur system missing ke liye FileNotFoundError ka direct combination use hota hai.
+
+  [CLASS 25]: ADVANCED LIST ITERATION (MAP, FILTER & REDUCE MECHANICS)
+- CONCEPT: Heavy loops aur append calls se bachne ke liye functional pipelines use kiye 
+  jaate hain. Map values ko transform karta hai, Filter criteria ke base par array ko clean 
+  karta hai, aur Reduce pure metrics ko compress karke ek single value return karta hai.
+- CODE:
+  from functools import reduce
+  stock = [5, 12, 3, 20, 8]
+  
+  even_stock = list(filter(lambda x : x % 2 == 0, stock))
+  map_stock = list(map(lambda x : x * 3, even_stock))
+  final_sum = reduce(lambda x, y : x + y, map_stock)
+- 💡 TIPS & TRAPS:
+  * TRAP: THE IMPORT REQUIREMENT! 'map' aur 'filter' Python ke built-in core ka part hain, 
+    lekin 'reduce' ko use karne se pehle hamesha 'from functools import reduce' likhna compulsory 
+    hai, warna code instantly crash ho jayega.
+  * TIP: JS ka Arrow syntax (=>) Python me 'lambda' keyword represent karta hai. Dono bina 
+    naam ke implicit 1-line return functions hote hain.
+
+  - 💡 ADDITIONAL PURGING TIPS & TRAPS:
+  * TRAP: THE LOOP-MUTATION BUG! Chalti hui loop ke andar kabhi bhi directly elements ko 
+    .remove() ya .pop() nahi karna chahiye agar aap aage se (0, 1, 2) check kar rahe hain. Isse 
+    elements aage shift ho jaate hain aur Python kuch items ko bina check kiye skip kar deta hai.
+  * TIP: Loop-mutation se bachne ke do hi tarike hain: Ya toh range(len-1, -1, -1) lagakar list 
+    ko peeche se khali karo, ya fir ek line me List Comprehension '[x for x in list if condition]' 
+    ka use karke fresh array build karo.
 ================================================================================
 

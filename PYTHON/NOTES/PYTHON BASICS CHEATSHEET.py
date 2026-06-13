@@ -146,4 +146,29 @@ while True:
         print('File is mising bro...\n')
     except ValueError:
         print('data is corrupted in file.\n')
+
+# --- CLASS 25: Advanced List Iteration (Map, Filter & Reduce Matrix) ---
+from functools import reduce
+
+stock_pool = [5, 12, 3, 20, 8]
+
+# A. Filter Engine: Extracts only even numbers
+even_pool = list(filter(lambda x : x % 2 == 0, stock_pool)) # Yields -> [12, 20, 8]
+
+# B. Map Engine: Triples every extracted element
+tripled_pool = list(map(lambda x : x * 3, even_pool))       # Yields -> [36, 60, 24]
+
+# C. Reduce Engine: Compresses whole array into a single grand accumulation sum
+final_pool_sum = reduce(lambda x, y : x + y, tripled_pool) # Yields -> 120 (36 + 60 + 24)
+
+# --- CLASS 25 (ADD-ON): Advanced In-Place Purging & Comprehensions ---
+quantities = [12, 0, 4, 0, 45, 8, 0]
+
+# Method 1: Structural Reverse Index Purging (Prevents Index-skipping bugs)
+for i in range(len(quantities) - 1, -1, -1):
+    if quantities[i] == 0:
+        quantities.pop(i) # Safely mutates array from back to front
+
+# Method 2: High-Speed List Comprehension (The Professional Inline Filter)
+clean_quantities = [item for item in quantities if item != 0]
 # ==============================================================================
