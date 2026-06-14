@@ -171,4 +171,35 @@ for i in range(len(quantities) - 1, -1, -1):
 
 # Method 2: High-Speed List Comprehension (The Professional Inline Filter)
 clean_quantities = [item for item in quantities if item != 0]
+
+# --- CLASS 26: Safe Dictionary Auditing (.get() Fallback Engine) ---
+ledger = {"supplier": "Khushboo Agency", "tax_clearance": True}
+
+user_key = input("Enter key to search: ")
+
+# Safe Extraction: Prevents KeyError crashes by injecting a runtime fallback string
+print(ledger.get(user_key, "Data Not Found"))
+
+# --- CLASS 27: Advanced String Shield (Input Validation Framework) ---
+while True:
+    user_key = input('enter product description format (ProductName-Price) :- ')
+    parts = user_key.split('-')
+
+    if len(parts) != 2:
+        print('Format is wrong\n')
+        continue
+
+    product_name = parts[0].strip()
+    quantity_name = parts[1].strip() # Price string component
+
+    if not product_name.isalpha():
+        print('Product name should be only in alphabet\n')
+        continue
+
+    if not quantity_name.isdigit():
+        print('Quantity name should be in numeric\n')
+        continue
+
+    print(f'✅ Guard Cleared: {product_name} - {int(quantity_name)}')
+    break
 # ==============================================================================

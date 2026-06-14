@@ -372,5 +372,41 @@
   * TIP: Loop-mutation se bachne ke do hi tarike hain: Ya toh range(len-1, -1, -1) lagakar list 
     ko peeche se khali karo, ya fir ek line me List Comprehension '[x for x in list if condition]' 
     ka use karke fresh array build karo.
+
+  [CLASS 26]: SAFE DICTIONARY AUDITING & FALLBACK RETRIEVAL
+- CONCEPT: Live production server par dictionary data extract karte waqt key na milne 
+  par KeyError crash se bachne ke liye direct bracket lookup 'dict[key]' ke badle humesha 
+  '.get(key, fallback_value)' framework ka use kiya jata hai.
+- CODE:
+  ledger = {"supplier": "Khushboo Agency", "tax_clearance": True}
+  user_key = input("Enter key to search: ")
+  print(ledger.get(user_key, "Data Not Found"))
+- 💡 TIPS & TRAPS:
+  * TRAP: THE KEYERROR CRASH! Agar production server me bina check kiye ledger["invalid_key"] 
+    run ho jaye, toh Python program ko bich me hi kill kar deta hai. 
+  * TIP: Agar aapne '.get(key)' ke baad koi fallback string ya value pass nahi ki hai, toh 
+    Python automatic back-end se 'None' return karega, jisse aap condition laga kar easily 
+    new entries track kar sakte hain.
+
+[CLASS 27]: ADVANCED STRING SHIELD & DATA INGESTION VALIDATION
+- CONCEPT: Raw user inputs hamesha untrusted hote hain. Server par runtime type-casting 
+  (int/float) crashes se bachne ke liye string structures ko string handling methods 
+  (.split, .isalpha, .isdigit) ke mathematical logical matrices se sanitize kiya jata hai.
+- CODE:
+  while True:
+      user_key = input('enter product description format (ProductName-Price) :- ')
+      parts = user_key.split('-')
+      if len(parts) != 2: continue
+      product_name = parts[0].strip()
+      quantity_name = parts[1].strip()
+      if not product_name.isalpha(): continue
+      if not quantity_name.isdigit(): continue
+      break
+- 💡 TIPS & TRAPS:
+  * TRAP: THE WHITE-SPACE FAULT! User text ke beech me ya aage-piche invisible space daal 
+    sakte hain (like "Paneer "). Agar bina .strip() kiye .isalpha() check karoge, toh Python 
+    space ko character na maante hue instantly False de dega. Humesha split ke baad strip zaruri hai.
+  * TIP: .isdigit() tabhi True deta hai jab string me sirf positive absolute whole numbers ho. 
+    Decimals (.) ya negative sign (-) hone par ye False de deta hai.
 ================================================================================
 
