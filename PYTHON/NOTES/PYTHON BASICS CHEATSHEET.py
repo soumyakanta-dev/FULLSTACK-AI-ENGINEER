@@ -202,4 +202,49 @@ while True:
 
     print(f'✅ Guard Cleared: {product_name} - {int(quantity_name)}')
     break
+
+# --- CLASS 28: The zip() Engine (Parallel Array Processing) ---
+items = ["Amul Buttermilk", "Milky Mist Paneer", "Tempeh"]
+prices = [15, 120, 140]
+
+# Parallel iteration: Pairs elements dynamically without out-of-index crashes
+for prdct, qty in zip(items, prices):
+    print(f"{prdct} cost is ₹{qty}")
+
+
+# --- CLASS 29: Dictionary Comprehension (Inline Hash-Map Generator) ---
+products = ["Buttermilk", "Paneer", "Tempeh"]
+
+# High-speed key-value matrix assignment in a single line
+stock_products = {product: "In Stock" for product in products}
+print(stock_products)
+
+
+# --- CLASS 30: The Complete Try-Except-Else-Finally Framework ---
+user_num = input("enter a number :- ")
+
+try:
+    clean_num = int(user_num)
+except ValueError:
+    print("Invalid Number")
+else:
+    # Executes ONLY if the try block runs with zero exceptions
+    print("Conversion Successfully")
+finally:
+    # 100% Guaranteed execution for resource cleanup (Memory/File closures)
+    print("Execution Finished")
+
+
+# --- CLASS 31: The match-case Engine (Structural Pattern Matching) ---
+# NOTE: Added compulsory brackets () to .lower() to ensure accurate evaluation
+role = input('Enter your role :- ').strip().lower()
+
+match role:
+    case 'admin':
+        print("Full Access granted")
+    case 'supplier':
+        print("Inventory Access granted")
+    case _:
+        # Default fallback catch-all (Equivalent to standard 'else' block)
+        print("Access Denied")
 # ==============================================================================

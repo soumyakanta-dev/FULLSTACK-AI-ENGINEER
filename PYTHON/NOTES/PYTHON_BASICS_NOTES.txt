@@ -408,5 +408,31 @@
     space ko character na maante hue instantly False de dega. Humesha split ke baad strip zaruri hai.
   * TIP: .isdigit() tabhi True deta hai jab string me sirf positive absolute whole numbers ho. 
     Decimals (.) ya negative sign (-) hone par ye False de deta hai.
+
+[CLASS 28]: THE zip() PARALLEL PROCESSING CORE
+- CONCEPT: Do ya do se zyada lists ko sequential counter loops ke bina parallelly 
+  ek sath chalane ke liye zip() matrix use hota hai. 
+- 💡 PERFORMANCE NOTE: Agar ek list choti aur doosri badi ho, toh zip() automatic 
+  sabse choti list ke end par safely terminate ho jata hai, index error nahi deta.
+
+[CLASS 29]: INLINE DICTIONARY COMPREHENSION
+- CONCEPT: List Comprehension jaisa hi shortcut framework hai, par iska output 
+  {key: value} map hota hai. Single line me structured dataset tables banane ke liye best hai.
+- SYNTAX: {key_variable: value_formula for variable in iterable}
+
+[CLASS 30]: COMPLETE CONTROL EXCEPTION LIFECYCLE (ELSE & FINALLY)
+- CONCEPT: Try-Except ke basic handling ko complete state controller me convert karta hai.
+- EXECUTION STATE RULES:
+  * try: Faulty calculation sandbox zone.
+  * except: Error interceptor block.
+  * else: Zero-error validation zone. (Sirf tab chalega jab try me koi exception na ho).
+  * finally: System absolute execution shield. (Chahe code fail ho ya pass, ye memory release 
+    karne ke liye hamesha 100% chalta hi hai).
+
+[CLASS 31]: STRUCTURAL PATTERN MATCHING (MATCH-CASE)
+- CONCEPT: Python 3.10+ ka advanced utility update. Standard 'if-elif-else' chains 
+  ka alternative hai jo backend jump-tables optimization use karta hai.
+- 💡 TRAPS: Case checks strict string match hote hain, isliye input processing ke waqt 
+  '.strip()' aur '.lower()' chain karna mandatory hai, warna match bypass ho jayega.
 ================================================================================
 
